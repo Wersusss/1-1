@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клан 1+1</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e1e1e, #2c3e50);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23ff9a9e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>'), auto;
+            animation: backgroundAnimation 10s infinite alternate;
+        }
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        header {
+            background: rgba(40, 40, 40, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin-bottom: 20px;
+            animation: slideDown 1s ease-in-out, glowHeader 3s infinite alternate;
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes glowHeader {
+            0% { box-shadow: 0 0 10px rgba(255, 154, 158, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(255, 154, 158, 0.8); }
+            100% { box-shadow: 0 0 10px rgba(255, 154, 158, 0.5); }
+        }
+        h1 {
+            margin: 0;
+            font-size: 3em;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s infinite alternate, float 3s ease-in-out infinite;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #ff9a9e; }
+            to { text-shadow: 0 0 20px #fad0c4; }
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        .content {
+            background: rgba(40, 40, 40, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            text-align: center;
+            animation: slideUp 1s ease-in-out, glowContent 3s infinite alternate;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes glowContent {
+            0% { box-shadow: 0 0 10px rgba(255, 154, 158, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(255, 154, 158, 0.8); }
+            100% { box-shadow: 0 0 10px rgba(255, 154, 158, 0.5); }
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #e0e0e0;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .discord-widget {
+            margin-top: 30px;
+            animation: fadeIn 2s ease-in-out, floatWidget 4s ease-in-out infinite;
+        }
+        @keyframes floatWidget {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        footer {
+            background: rgba(40, 40, 40, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #e0e0e0;
+            animation: fadeIn 2.5s ease-in-out, glowFooter 3s infinite alternate;
+        }
+        @keyframes glowFooter {
+            0% { box-shadow: 0 0 10px rgba(255, 154, 158, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(255, 154, 158, 0.8); }
+            100% { box-shadow: 0 0 10px rgba(255, 154, 158, 0.5); }
+        }
+        a {
+            color: #ff9a9e;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #fad0c4;
+        }
+        .btn {
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            color: #1e1e1e;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 154, 158, 0.7);
+        }
+        .light-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 154, 158, 0.1), transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+            animation: lightEffect 5s infinite alternate;
+        }
+        @keyframes lightEffect {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="10%" cy="20%" r="2" fill="%23ffffff" /><circle cx="30%" cy="50%" r="1" fill="%23ffffff" /><circle cx="70%" cy="10%" r="1.5" fill="%23ffffff" /><circle cx="90%" cy="40%" r="1" fill="%23ffffff" /><circle cx="50%" cy="80%" r="2" fill="%23ffffff" /></svg>');
+            animation: twinkle 3s infinite alternate;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        .light-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 154, 158, 0.1), transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background: rgba(40, 40, 40, 0.9);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            padding: 20px;
+        }
+        .sidebar .menu button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            color: #1e1e1e;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .sidebar .menu button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(255, 154, 158, 0.7);
+        }
+        .home-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            color: #1e1e1e;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        .home-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(255, 154, 158, 0.7);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="light-effect"></div>
+    <div class="sidebar">
+        <div class="menu">
+            <button class="home-btn" onclick="showPage('main')">🏠 Главная</button>
+            <button onclick="showPage('rules')">📕Правила</button>
+            <button onclick="showPage('activities')">🚀Активности</button>
+            <button onclick="showPage('about')">🌐О сообществе</button>
+            <button onclick="showPage('support')">👤Поддержка</button>
+        </div>
+    </div>
+    <header id="main-header">
+        <h1>〈1+1〉|  Avanguard</h1>
+    </header>
+    <div class="content" id="main-content">
+        <p>Добро пожаловать на официальный сайт Сообщества〈1+1〉|  Avanguard ! Здесь вы найдете всю информацию о нашем сообществе, событиях и активностях. Присоединяйтесь к нам в Discord, чтобы быть в курсе всех новостей!</p>
+        <div class="discord-widget">
+            <iframe src="https://discord.com/widget?id=1270426760755806318&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </div>
+        <button class="btn" onclick="window.location.href='https://discord.gg/YHXWsSeD'">Присоединяйся к нам!</button>
+    </div>
+    <div class="content hidden" id="rules-content">
+        <h2>Правила</h2>
+        <p>Здесь будут описаны правила нашего сообщества. Следуйте им, чтобы поддерживать дружелюбную атмосферу!</p>
+    </div>
+    <div class="content hidden" id="activities-content">
+        <h2>Активности</h2>
+        <p>Здесь вы найдете информацию о текущих активностях и событиях в нашем Сообществе.</p>
+    </div>
+    <div class="content hidden" id="about-content">
+        <h2>О сообществе</h2>
+        <p>Узнайте больше о нашем Сообществе, его истории и целях.</p>
+    </div>
+    <div class="content hidden" id="support-content">
+        <h2>Поддержка</h2>
+        <p>Если у вас есть вопросы или проблемы, свяжитесь с нами через эту страницу.</p>
+    </div>
+    
+
+    <script>
+        function showPage(pageId) {
+            // Скрываем все страницы
+            document.querySelectorAll('.content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            // Показываем выбранную страницу
+            document.getElementById(`${pageId}-content`).classList.remove('hidden');
+            // Обновляем заголовок
+            if (pageId === 'main') {
+                document.getElementById('main-header').style.display = 'block';
+            } else {
+                document.getElementById('main-header').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
